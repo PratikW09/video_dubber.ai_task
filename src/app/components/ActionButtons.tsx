@@ -1,7 +1,16 @@
 "use client";
 import { Group, Button } from "@mantine/core";
 
-const ActionButtons = ({ applyStyleToSelection, applyHighlightToSelection }: any) => {
+// Define the prop types correctly
+interface ActionButtonsProps {
+  applyStyleToSelection: (style: string) => void;
+  applyHighlightToSelection: () => void;
+}
+
+const ActionButtons: React.FC<ActionButtonsProps> = ({
+  applyStyleToSelection,
+  applyHighlightToSelection,
+}) => {
   return (
     <Group justify="center" mb="md">
       <Button variant="outline" onClick={() => applyStyleToSelection("reset")}>

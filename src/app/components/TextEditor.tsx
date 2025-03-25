@@ -1,6 +1,5 @@
 "use client";
 import { Paper, Box } from "@mantine/core";
-import { useRef } from "react";
 
 const TextEditor = ({ handleInput, editorRef, darkMode }: any) => {
   return (

@@ -1,14 +1,30 @@
 "use client";
 import { Group, Text, ActionIcon } from "@mantine/core";
 
-const ColorPalette = ({
+// Define color type
+interface Color {
+  hex: string;
+  name: string;
+}
+
+// Define props type
+interface ColorPaletteProps {
+  colors: Color[];
+  selectedColor: string;
+  handleColorChange: (color: string) => void;
+  highlightColors: Color[];
+  highlightColor: string;
+  handleHighlightChange: (color: string) => void;
+}
+
+const ColorPalette: React.FC<ColorPaletteProps> = ({
   colors,
   selectedColor,
   handleColorChange,
   highlightColors,
   highlightColor,
   handleHighlightChange,
-}: any) => {
+}) => {
   return (
     <>
       {/* Text Color Palette */}
@@ -16,7 +32,7 @@ const ColorPalette = ({
         Select Text Color:
       </Text>
       <Group justify="center" mt="xs">
-        {colors.map((color: any) => (
+        {colors.map((color) => (
           <ActionIcon
             key={color.hex}
             onClick={() => handleColorChange(color.hex)}
@@ -41,7 +57,7 @@ const ColorPalette = ({
         Select Highlight Color:
       </Text>
       <Group justify="center" mt="xs">
-        {highlightColors.map((color: any) => (
+        {highlightColors.map((color) => (
           <ActionIcon
             key={color.hex}
             onClick={() => handleHighlightChange(color.hex)}
