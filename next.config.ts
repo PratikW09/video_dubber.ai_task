@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true, // ✅ Temporarily ignore ESLint errors during build
+  experimental: {
+    appDir: true, // ✅ If using app router
   },
+  reactStrictMode: true,
 };
 
 module.exports = nextConfig;
